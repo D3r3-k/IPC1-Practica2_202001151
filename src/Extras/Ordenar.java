@@ -53,6 +53,7 @@ public class Ordenar extends Thread {
     // ASENDENTE   || DESENDENTE
     // METODO = 0  || METODO 1
     // QUICKSORT   || BURBUJA
+    
     private void EmpezarOrden(int metodo, int orden, db_datos[] arr) {
         if (orden == 0) {
             if (metodo == 0) {

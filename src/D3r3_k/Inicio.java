@@ -582,6 +582,31 @@ public class Inicio extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btn_newReportActionPerformed
 
+    public void limpiar() {
+        // LIMPIO EL PANEL 
+        Ordenar o = new Ordenar();
+        for (int i = 0; i < o.datos.length; i++) {
+            if (o.datos != null) {
+                o.datos[i] = null;
+            }
+        }
+
+        rbtn_asendente.setSelected(false);
+        rbtn_desendente.setSelected(false);
+        rbtn_shellSort.setSelected(false);
+        rbtn_burbuja.setSelected(false);
+
+        desactivarOrden();
+
+        btn_newReport.setVisible(false);
+
+        txt_cronometraje.setText("00:00");
+        txt_pasos.setText("0");
+        panel_grafica.removeAll();
+        panel_grafica.repaint();
+        panel_grafica.validate();
+    }
+
     public void Graficar(db_datos[] arr) {
         panel_grafica.removeAll();
         panel_grafica.repaint();
@@ -605,31 +630,6 @@ public class Inicio extends javax.swing.JFrame {
 
         panel_grafica.setLayout(new BorderLayout());
         panel_grafica.add(panel, BorderLayout.NORTH);
-        panel_grafica.repaint();
-        panel_grafica.validate();
-    }
-
-    public void limpiar() {
-        // LIMPIO EL PANEL 
-        Ordenar o = new Ordenar();
-        for (int i = 0; i < o.datos.length; i++) {
-            if (o.datos != null) {
-                o.datos[i] = null;
-            }
-        }
-
-        rbtn_asendente.setSelected(false);
-        rbtn_desendente.setSelected(false);
-        rbtn_shellSort.setSelected(false);
-        rbtn_burbuja.setSelected(false);
-
-        desactivarOrden();
-
-        btn_newReport.setVisible(false);
-
-        txt_cronometraje.setText("00:00");
-        txt_pasos.setText("0");
-        panel_grafica.removeAll();
         panel_grafica.repaint();
         panel_grafica.validate();
     }
