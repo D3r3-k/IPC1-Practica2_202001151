@@ -73,7 +73,6 @@ public class Ordenar extends Thread {
     private void shellSort(boolean orden, db_datos[] arr) {
         if (orden) {
             try {
-                System.out.println("Orden Asendente| Metodo 1");
                 int pasos = 1;
                 db_datos temp = null;
                 int n = arr.length;
@@ -107,7 +106,6 @@ public class Ordenar extends Thread {
             }
         } else {
             try {
-                System.out.println("Orden Desendente| Metodo 1");
                 int pasos = 1;
                 db_datos temp = null;
                 int n = arr.length;
@@ -145,7 +143,6 @@ public class Ordenar extends Thread {
     private void burbuja(boolean orden, db_datos[] arr) {
         if (orden) {
             try {
-                System.out.println("Orden Ascendente | Burbuja");
                 int pasos = 1;
                 int n = arr.length;
                 db_datos temp;
@@ -179,7 +176,6 @@ public class Ordenar extends Thread {
             }
         } else {
             try {
-                System.out.println("Orden Descendente | Burbuja");
                 int pasos = 1;
                 int n = arr.length;
                 db_datos temp;
