@@ -14,6 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -464,11 +465,13 @@ public class Inicio extends javax.swing.JFrame {
         } else if (rbtn_shellSort.isSelected()) {
             algoritmo = rbtn_shellSort.getText();
         }
-        String cadena = "<!DOCTYPE html>\n"
+        String _cadena = "<!DOCTYPE html>\n"
                 + "<html lang=\"en\">\n"
                 + "<head>\n"
                 + "    <meta charset=\"UTF-8\">\n"
                 + "    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n"
+                + "    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />"
+                + "    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />"
                 + "    <title>Reporte de Graficas</title>\n"
                 + "    <style>\n "
                 + "        * {\n"
@@ -515,7 +518,7 @@ public class Inicio extends javax.swing.JFrame {
                 + "            <th>Pasos</th>\n"
                 + "        </tr>\n"
                 + "        <tr>\n"
-                + "            <td>Derek Francisco Orellana Ibáñez</td>\n"
+                + "            <td>Derek Francisco Orellana Ib&aacute;&ntilde;ez</td>\n"
                 + "            <td>202001151</td>\n"
                 + "            <td>" + algoritmo + "</td>\n"
                 + "            <td>" + tiempo + "</td>\n"
@@ -532,14 +535,14 @@ public class Inicio extends javax.swing.JFrame {
                 + "        </tr>\n";
         for (int i = 0; i < o.original.length; i++) {
             if (o.original[i] != null) {
-                cadena += "        <tr>\n"
+                _cadena += "        <tr>\n"
                         + "            <td>" + i + "</td>\n"
                         + "            <td>" + o.original[i].getPais() + "</td>\n"
                         + "            <td>" + o.original[i].getValor() + "</td>\n"
                         + "        </tr>\n";
             }
         }
-        cadena += " </table>\n"
+        _cadena += " </table>\n"
                 + "</div>"
                 + "<div id=\"contenedor2\">"
                 + "   <center><h3> Datos Ordenados </h3></center>"
@@ -551,18 +554,21 @@ public class Inicio extends javax.swing.JFrame {
                 + "        </tr>\n";
         for (int i = 0; i < o.datos.length; i++) {
             if (o.datos[i] != null) {
-                cadena += "        <tr>\n"
+                _cadena += "        <tr>\n"
                         + "            <td>" + i + "</td>\n"
                         + "            <td>" + o.datos[i].getPais() + "</td>\n"
                         + "            <td>" + o.datos[i].getValor() + "</td>\n"
                         + "        </tr>\n";
             }
         }
-        cadena += " </table>\n"
+        _cadena += " </table>\n"
                 + "</div>";
 
-        cadena += "</body>\n"
+        _cadena += "</body>\n"
                 + "</html>";
+
+        byte[] cadenaBytes = _cadena.getBytes();
+        String cadena = new String(cadenaBytes, StandardCharsets.UTF_8);
 
         File reporte = new File(titulo + ".html");
         try {
