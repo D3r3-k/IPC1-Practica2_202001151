@@ -37,6 +37,7 @@ public class Inicio extends javax.swing.JFrame {
     private void initComponents2() {
         this.setLocationRelativeTo(null);
         btn_newReport.setVisible(false);
+        desactivarOrden();
     }
 
     @SuppressWarnings("unchecked")
@@ -412,6 +413,7 @@ public class Inicio extends javax.swing.JFrame {
             limpiar();
             almacenar();
             Graficar(o.datos);
+            activarOrden();
         }
     }//GEN-LAST:event_btn_graficarActionPerformed
 
@@ -583,9 +585,9 @@ public class Inicio extends javax.swing.JFrame {
 
         DefaultCategoryDataset gValores = new DefaultCategoryDataset();
 
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] != null) {
-                gValores.setValue(arr[i].getValor(), arr[i].getPais(), "");
+        for (db_datos arr1 : arr) {
+            if (arr1 != null) {
+                gValores.setValue(arr1.getValor(), arr1.getPais(), "");
             }
         }
 
@@ -614,6 +616,8 @@ public class Inicio extends javax.swing.JFrame {
         rbtn_desendente.setSelected(false);
         rbtn_shellSort.setSelected(false);
         rbtn_burbuja.setSelected(false);
+
+        desactivarOrden();
 
         btn_newReport.setVisible(false);
 
@@ -699,6 +703,14 @@ public class Inicio extends javax.swing.JFrame {
         btn_newReport.setVisible(false);
     }
 
+    public static void desactivarOrden() {
+        btn_ordenar.setEnabled(false);
+        rbtn_asendente.setEnabled(false);
+        rbtn_desendente.setEnabled(false);
+        rbtn_shellSort.setEnabled(false);
+        rbtn_burbuja.setEnabled(false);
+    }
+
     public static void activar() {
         input_ruta.setEnabled(true);
         input_tituloGrafica.setEnabled(true);
@@ -714,6 +726,14 @@ public class Inicio extends javax.swing.JFrame {
 
         btn_newReport.setEnabled(true);
         btn_newReport.setVisible(true);
+    }
+
+    public static void activarOrden() {
+        btn_ordenar.setEnabled(true);
+        rbtn_asendente.setEnabled(true);
+        rbtn_desendente.setEnabled(true);
+        rbtn_shellSort.setEnabled(true);
+        rbtn_burbuja.setEnabled(true);
     }
 
     public static void main(String args[]) {

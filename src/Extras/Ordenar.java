@@ -218,9 +218,9 @@ public class Ordenar extends Thread {
 
         DefaultCategoryDataset gValores = new DefaultCategoryDataset();
 
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] != null) {
-                gValores.setValue(arr[i].getValor(), arr[i].getPais(), "");
+        for (db_datos arr1 : arr) {
+            if (arr1 != null) {
+                gValores.setValue(arr1.getValor(), arr1.getPais(), "");
             }
         }
 
